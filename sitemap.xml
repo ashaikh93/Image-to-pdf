@@ -1,0 +1,5 @@
+Create a sitemap.xml file for my site pdfimageconverter.online with these pages:
+- https://www.pdfimageconverter.online/ (priority 1.0, changefreq weekly)
+- https://www.pdfimageconverter.online/privacy.html (priority 0.3, changefreq monthly)
+
+Use the standard sitemap 0.9 format with proper XML declaration. Give me the complete XML in one code block, ready to save as sitemap.xml.
