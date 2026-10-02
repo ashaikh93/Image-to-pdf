@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- SEO: title and description shown in Google results -->
-<title>Image to PDF Converter — Free Online Tool</title>
-<meta name="description" content="Convert JPG, PNG and WEBP images to a single PDF for free. Fast, private, and runs entirely in your browser — your files never leave your device.">
+<title>Image to PDF Converter – Free Online Tool (No Upload, No Signup)</title>
+<meta name="description" content="Convert JPG, PNG, WEBP images to PDF free in your browser. No upload, no signup, unlimited. Fast and private.">
 
 <style>
   /* ===== BASIC STYLES ===== */
@@ -88,6 +88,31 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
 
+  /* ===== HOW-TO + FAQ SECTIONS ===== */
+  .info { margin-top: 72px; }
+  .info h2 { font-size: 1.6rem; text-align: center; margin-bottom: 28px; }
+
+  /* Numbered steps */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
+  .steps li { padding: 22px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .steps .n {
+    display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+    border-radius: 50%; background: #E5322D; color: #fff; font-weight: 700; margin-bottom: 12px;
+  }
+  .steps h3 { font-size: 1.05rem; margin: 0 0 6px; }
+  .steps p { margin: 0; color: #666; font-size: .95rem; }
+
+  /* FAQ (click a question to open the answer) */
+  .faq details { border-bottom: 1px solid #eee; padding: 16px 4px; }
+  .faq summary { font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #E5322D; font-size: 1.4rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq summary:focus-visible { outline: 3px solid #333; outline-offset: 4px; border-radius: 4px; }
+  .faq p { margin: 12px 0 0; color: #666; }
+
   /* ===== FOOTER ===== */
   footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; }
 
@@ -149,6 +174,58 @@
       <button class="btn" id="convertBtn" type="button">Convert to PDF</button>
       <p class="hint">Tip: drag thumbnails (or use the arrows) to change the page order.</p>
     </div>
+  </section>
+
+  <!-- HOW-TO SECTION: 4 numbered steps -->
+  <section class="info">
+    <h2>How to Convert Images to PDF</h2>
+    <ol class="steps">
+      <li>
+        <div class="n">1</div>
+        <h3>Add your images</h3>
+        <p>Click “Select images” or drag JPG, PNG, and WEBP files into the box.</p>
+      </li>
+      <li>
+        <div class="n">2</div>
+        <h3>Arrange the pages</h3>
+        <p>Drag thumbnails into the order you want, or delete any you don’t need.</p>
+      </li>
+      <li>
+        <div class="n">3</div>
+        <h3>Choose your settings</h3>
+        <p>Pick portrait or landscape, a page size (A4, Letter, or Fit to image), and a margin.</p>
+      </li>
+      <li>
+        <div class="n">4</div>
+        <h3>Convert and download</h3>
+        <p>Click “Convert to PDF.” Your file downloads automatically in seconds.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- FAQ SECTION: 5 questions -->
+  <section class="info faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Is this image to PDF converter really free?</summary>
+      <p>Yes. It’s free to use with no signup, no watermark, and no limit on how many PDFs you create.</p>
+    </details>
+    <details>
+      <summary>Are my images uploaded to a server?</summary>
+      <p>No. Everything happens inside your browser, so your images never leave your device. That makes it a good choice for private documents like IDs, receipts, and contracts.</p>
+    </details>
+    <details>
+      <summary>Which image formats can I convert to PDF?</summary>
+      <p>You can use JPG (JPEG), PNG, and WEBP images. You can mix different formats in the same PDF.</p>
+    </details>
+    <details>
+      <summary>Can I combine multiple images into one PDF?</summary>
+      <p>Yes. Each image becomes its own page in a single PDF, in the order shown in the thumbnails. Drag them to rearrange before converting.</p>
+    </details>
+    <details>
+      <summary>What does “Fit to image” page size mean?</summary>
+      <p>Each page is sized to match its image, so nothing is shrunk or surrounded by blank space. Choose A4 or Letter instead if you plan to print the PDF on standard paper.</p>
+    </details>
   </section>
 </main>
 
