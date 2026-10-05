@@ -1,5 +1,18 @@
-Create a sitemap.xml file for my site pdfimageconverter.online with these pages:
-- https://www.pdfimageconverter.online/ (priority 1.0, changefreq weekly)
-- https://www.pdfimageconverter.online/privacy.html (priority 0.3, changefreq monthly)
-
-Use the standard sitemap 0.9 format with proper XML declaration. Give me the complete XML in one code block, ready to save as sitemap.xml.
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.pdfimageconverter.online/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.pdfimageconverter.online/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.pdfimageconverter.online/blog/jpg-to-pdf-iphone.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
