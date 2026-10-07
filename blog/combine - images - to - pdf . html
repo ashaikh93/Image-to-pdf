@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- SEO: meta title (53 characters) and meta description (154 characters) -->
+<title>Combine Images into PDF: 3 Free Easy Ways (2025 Guide)</title>
+<meta name="description" content="Learn how to combine images into PDF on Windows, Mac, or online. Follow our easy steps to merge JPG into PDF for free. No signup, and nothing is uploaded.">
+<link rel="canonical" href="https://www.pdfimageconverter.online/blog/combine-images-to-pdf.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Combine Multiple Images into One PDF (Free, 2025)">
+<meta property="og:description" content="3 free ways to combine photos into one PDF on Windows, Mac, or in your browser.">
+
+<style>
+  /* ===== BASIC STYLES (same as the rest of the site) ===== */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333; background: #fff; line-height: 1.7; }
+  .container { max-width: 760px; margin: 0 auto; padding: 32px 20px 24px; }
+
+  /* ===== TOP BAR ===== */
+  .topbar { max-width: 760px; margin: 0 auto; padding: 24px 20px 0; }
+  .topbar a { color: #E5322D; font-weight: 700; text-decoration: none; font-size: 1.05rem; }
+  .topbar a:hover { text-decoration: underline; }
+
+  /* ===== ARTICLE TEXT ===== */
+  h1 { font-size: 2.3rem; line-height: 1.25; margin: 0 0 8px; }
+  .meta { color: #888; font-size: .9rem; margin: 0 0 28px; }
+  h2 { font-size: 1.5rem; margin: 40px 0 12px; line-height: 1.3; }
+  h3 { font-size: 1.1rem; margin: 20px 0 6px; }
+  p { margin: 0 0 16px; }
+  ol { padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 8px; }
+  a { color: #E5322D; }
+  .note { background: #fafafa; border-radius: 12px; padding: 14px 18px; box-shadow: 0 2px 8px rgba(0,0,0,.08); font-size: .95rem; }
+
+  /* ===== CALL-TO-ACTION BOX + BUTTON ===== */
+  .cta { text-align: center; padding: 28px 20px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); margin: 28px 0; }
+  .cta p { margin-bottom: 16px; }
+  .btn { display: inline-block; background: #E5322D; color: #fff; border-radius: 10px; text-decoration: none;
+    padding: 14px 28px; font-size: 1.05rem; font-weight: 600; box-shadow: 0 4px 12px rgba(229,50,45,.3); transition: background .15s; }
+  .btn:hover { background: #c92823; }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid #333; outline-offset: 2px; border-radius: 4px; }
+
+  /* ===== FOOTER ===== */
+  footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) { h1 { font-size: 1.8rem; } h2 { font-size: 1.35rem; } }
+</style>
+</head>
+
+<body>
+<div class="topbar"><a href="../index.html">← Image to PDF</a></div>
+
+<main class="container">
+  <article>
+    <h1>How to Combine Multiple Images into One PDF (Free, 2025)</h1>
+    <p class="meta">6 min read</p>
+
+    <p>Sooner or later, almost everyone needs to combine images into a PDF. Maybe you took photos of a scanned document, and each page is a separate picture. Maybe you have a pile of receipts to send for a refund. Or you may need to put your ID, resume, and certificates into one file for a job application. Even a photo album is easier to share as a single PDF than as fifty loose pictures.</p>
+    <p>The good news is that it is easy, and it does not cost anything. In this guide, you will learn three free ways to merge JPG into PDF and turn multiple images into one PDF. Two methods use tools already on your computer. The third works in any web browser.</p>
+
+    <h2>Method 1: Combine Images on Windows (Built-in)</h2>
+    <p>Windows has a hidden tool called <strong>Microsoft Print to PDF</strong>. It works like a printer, but instead of using paper, it saves a PDF file. You can use it to combine photos into a PDF without installing anything.</p>
+    <ol>
+      <li>Open <strong>File Explorer</strong> and go to the folder with your images.</li>
+      <li>Hold the <strong>Ctrl</strong> key and click each image you want to include.</li>
+      <li>Right-click one of the selected images and choose <strong>Print</strong>. On Windows 11, you may need to click <strong>Show more options</strong> first.</li>
+      <li>In the Print Pictures window, set the printer to <strong>Microsoft Print to PDF</strong>.</li>
+      <li>On the right, choose the <strong>Full page photo</strong> layout. Each image will get its own page.</li>
+      <li>Click <strong>Print</strong>, type a name for your file, and click <strong>Save</strong>.</li>
+    </ol>
+    <p>The Photos app uses the same Print window (press Ctrl+P), but File Explorer makes it easier to pick many images at once.</p>
+    <p class="note"><strong>Tip:</strong> The pages usually follow the order of the file names. To control the order, rename your files 1, 2, 3, and so on before you print. Also, Windows does not give you much control over margins or page size.</p>
+
+    <h2>Method 2: Combine Images on Mac (Preview App)</h2>
+    <p>Every Mac comes with Preview, which can turn many pictures into one PDF. It also lets you drag pages into the order you want.</p>
+    <ol>
+      <li>In Finder, select all the images you want to combine.</li>
+      <li>Right-click them, choose <strong>Open With</strong>, and then choose <strong>Preview</strong>. All the images open in one window.</li>
+      <li>If you do not see the small pictures on the left, click <strong>View</strong> and choose <strong>Thumbnails</strong>.</li>
+      <li>Drag the thumbnails up or down to put them in the right order.</li>
+      <li>Click <strong>File</strong>, then <strong>Print</strong>. Press <strong>Command+A</strong> in the thumbnail bar if you want to be sure every page is included.</li>
+      <li>Click the <strong>PDF</strong> menu at the bottom left and choose <strong>Save as PDF</strong>.</li>
+      <li>Type a name, pick a folder, and click <strong>Save</strong>.</li>
+    </ol>
+    <p>This method works well, but it only works on a Mac. If you use both Windows and Mac, or you work on a phone or school computer, the next method is easier.</p>
+
+    <h2>Method 3: Use Our Free Online Tool</h2>
+    <p>Our <a href="https://www.pdfimageconverter.online/">free image to PDF converter</a> works in any modern browser on Windows, Mac, Linux, Android, and iPhone. It is built to combine multiple images into one PDF quickly, with more choices than the built-in tools.</p>
+    <p>Here is what you get:</p>
+    <ul>
+      <li><strong>No signup.</strong> There is no account, no email, and no watermark.</li>
+      <li><strong>Drag to reorder.</strong> Drag the thumbnails into the right order. On a phone, use the small arrow buttons instead.</li>
+      <li><strong>Page size options.</strong> Choose A4, Letter, or Fit to image. You can also pick Portrait or Landscape, and set a small or big margin.</li>
+      <li><strong>Real privacy.</strong> Nothing is uploaded to a server. All the work happens inside your browser, so your files never leave your device.</li>
+    </ul>
+    <p>To use it, follow these steps:</p>
+    <ol>
+      <li>Open <a href="https://www.pdfimageconverter.online/">pdfimageconverter.online</a>.</li>
+      <li>Drag your images onto the page, or click <strong>Select images</strong>.</li>
+      <li>Drag the thumbnails to change the page order. Click the red × to remove a picture.</li>
+      <li>Choose your orientation, page size, and margin.</li>
+      <li>Click <strong>Convert to PDF</strong>. Your PDF downloads on its own.</li>
+    </ol>
+
+    <div class="cta">
+      <p><strong>Have a pile of photos to merge?</strong> Combine them in seconds, free and private.</p>
+      <a class="btn" href="https://www.pdfimageconverter.online/">Combine Images into PDF Now</a>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is it really free to combine images into a PDF?</h3>
+    <p>Yes. Our tool is completely free. There are no fees, no limits on how many PDFs you make, and no watermark on your files. The built-in Windows and Mac methods are free too.</p>
+
+    <h3>How many images can I put in one PDF?</h3>
+    <p>Our tool has no set limit. The real limit is your device. Very large batches of high-quality photos can be slow on older phones and computers. If you have hundreds of pictures, try splitting them into a few smaller PDFs.</p>
+
+    <h3>Is it safe and private?</h3>
+    <p>Yes. Many online converters upload your files to their servers, which can be risky for IDs, contracts, and receipts. Our tool does not upload anything. Your images are processed in your own browser and never leave your device.</p>
+
+    <h3>Which file formats can I use?</h3>
+    <p>Our tool accepts JPG (JPEG), PNG, and WEBP images, and you can mix them in the same PDF. If your photos are in another format, such as HEIC from an iPhone, convert them to JPG first.</p>
+
+    <h2>Conclusion</h2>
+    <p>You now know three free ways to combine images into a PDF. Windows has Print to PDF, and Mac has Preview. Both work, but they offer few choices and only run on one kind of computer. Our online tool works on any device, lets you reorder pages by dragging, gives you page size and margin options, and keeps your files private.</p>
+    <p>Ready to start? <a href="https://www.pdfimageconverter.online/">Open the free Image to PDF converter</a>, add your pictures, and have your PDF in under a minute. No signup, no upload, no stress.</p>
+  </article>
+</main>
+
+<footer>
+  © 2025 pdfimageconverter.online — All processing happens in your browser<br>
+  <a href="../index.html">Home</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="index.html">Blog</a>
+</footer>
+</body>
+</html>
