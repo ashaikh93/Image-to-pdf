@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- SEO: title (46 characters) and description (128 characters) -->
+<title>Summarize PDF with AI Free – Private, No Upload</title>
+<meta name="description" content="Summarize PDF with AI free in your browser. Uses Chrome's built-in AI. No upload, no signup. Your files never leave your device.">
+<link rel="canonical" href="https://www.pdfimageconverter.online/ai-summarizer.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Summarize PDF with AI Free – Private, No Upload">
+<meta property="og:description" content="A private AI PDF summarizer that runs on your device. Free, no signup.">
+
+<style>
+  /* ===== BASIC STYLES (same as the rest of the site) ===== */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333; background: #fff; line-height: 1.5; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 20px 24px; }
+
+  /* ===== NAV MENU ===== */
+  nav { max-width: 900px; margin: 0 auto; padding: 24px 20px 0; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
+  nav a { color: #333; font-weight: 600; text-decoration: none; padding: 6px 2px; border-bottom: 3px solid transparent; }
+  nav a:hover { color: #E5322D; }
+  nav a.active { color: #E5322D; border-bottom-color: #E5322D; }
+
+  /* ===== HEADING ===== */
+  h1 { font-size: 2.6rem; text-align: center; margin: 24px 0 12px; }
+  .subtitle { text-align: center; color: #666; max-width: 600px; margin: 0 auto 36px; font-size: 1.05rem; }
+  h2 { font-size: 1.1rem; margin: 0 0 12px; }
+
+  /* ===== BUTTONS ===== */
+  .btn { background: #E5322D; color: #fff; border: none; border-radius: 10px; padding: 14px 28px;
+    font-size: 1.05rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(229,50,45,.3); transition: background .15s; }
+  .btn:hover { background: #c92823; }
+  .btn:disabled { background: #ccc; box-shadow: none; cursor: not-allowed; }
+  .btn.light { background: #fff; color: #E5322D; border: 2px solid #E5322D; box-shadow: none; padding: 10px 22px; }
+  .btn.light:hover { background: #fff5f5; }
+  a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid #333; outline-offset: 2px; }
+
+  /* ===== NOTICE (browser support message) ===== */
+  #notice { display: none; margin-bottom: 20px; padding: 16px 20px; border-radius: 12px; background: #fff5f5;
+    border: 1px solid #E5322D; text-align: center; }
+
+  /* ===== DROP ZONE ===== */
+  #dropzone { border: 2px dashed #ccc; border-radius: 16px; padding: 48px 20px; text-align: center; transition: .15s; }
+  #dropzone.dragover { border-color: #E5322D; background: #fff5f5; }
+  #dropzone p { margin: 14px 0 0; color: #777; }
+  #fileName { font-weight: 600; word-break: break-word; }
+
+  /* ===== OPTIONS ===== */
+  #options { display: none; margin-top: 28px; padding: 24px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .opt-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  label { display: block; font-weight: 600; margin-bottom: 6px; font-size: .9rem; }
+  select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; background: #fff; color: #333; }
+  .center { text-align: center; margin-top: 24px; }
+  .hint { font-size: .85rem; color: #888; margin: 10px 0 0; }
+
+  /* ===== SUMMARY BOX ===== */
+  #result { display: none; margin-top: 28px; }
+  #summary { background: #fafafa; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    white-space: pre-wrap; line-height: 1.7; font-size: 1.02rem; }
+  .ai-note { font-size: .85rem; color: #888; margin: 10px 0 0; text-align: center; }
+
+  /* ===== LOADING SPINNER ===== */
+  #loading { display: none; position: fixed; inset: 0; background: rgba(255,255,255,.88); z-index: 10; padding: 20px; text-align: center;
+    flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+  .spinner { width: 54px; height: 54px; border: 6px solid #eee; border-top-color: #E5322D; border-radius: 50%; animation: spin .9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+
+  /* ===== HOW-TO + FAQ SECTIONS ===== */
+  .info-sec { margin-top: 72px; }
+  .info-sec h2 { font-size: 1.6rem; text-align: center; margin-bottom: 28px; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
+  .steps li { padding: 22px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .steps .n { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;
+    background: #E5322D; color: #fff; font-weight: 700; margin-bottom: 12px; }
+  .steps h3 { font-size: 1.05rem; margin: 0 0 6px; }
+  .steps p { margin: 0; color: #666; font-size: .95rem; }
+  .faq details { border-bottom: 1px solid #eee; padding: 16px 4px; }
+  .faq summary { font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #E5322D; font-size: 1.4rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 12px 0 0; color: #666; }
+  .faq a { color: #E5322D; }
+
+  /* ===== FOOTER ===== */
+  footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; line-height: 1.8; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) { h1 { font-size: 2rem; } }
+</style>
+</head>
+
+<body>
+<!-- Navigation menu -->
+<nav aria-label="Main">
+  <a href="index.html">Image to PDF</a>
+  <a href="merge-pdf.html">Merge PDF</a>
+  <a href="ai-summarizer.html" class="active" aria-current="page">AI Summarizer</a>
+</nav>
+
+<main class="container">
+  <h1>AI PDF Summarizer</h1>
+  <p class="subtitle">Summarize PDF with AI for free. It runs on your device using Chrome’s built-in AI, so your files never leave your device.</p>
+
+  <!-- Shown when the browser can't use the AI feature -->
+  <div id="notice" role="alert"></div>
+
+  <!-- Drop zone -->
+  <section id="dropzone">
+    <h2>Add your PDF file</h2>
+    <button class="btn" id="pickBtn" type="button">Select PDF</button>
+    <p>or drop it here</p>
+    <p id="fileName"></p>
+    <input type="file" id="fileInput" accept="application/pdf,.pdf" hidden>
+  </section>
+
+  <!-- Options + Summarize button -->
+  <section id="options">
+    <div class="opt-row">
+      <div>
+        <label for="type">Summary style</label>
+        <select id="type">
+          <option value="key-points">Key points (bullets)</option>
+          <option value="tldr">TL;DR (short paragraph)</option>
+        </select>
+      </div>
+      <div>
+        <label for="length">Length</label>
+        <select id="length">
+          <option value="short">Short</option>
+          <option value="medium" selected>Medium</option>
+          <option value="long">Long</option>
+        </select>
+      </div>
+    </div>
+    <div class="center">
+      <button class="btn" id="sumBtn" type="button">Summarize PDF</button>
+      <p class="hint">The first time, Chrome may download its AI model. This can take a few minutes.</p>
+    </div>
+  </section>
+
+  <!-- Summary output -->
+  <section id="result">
+    <h2>Your summary</h2>
+    <div id="summary" tabindex="0"></div>
+    <div class="center">
+      <button class="btn light" id="copyBtn" type="button">Copy Summary</button>
+      <p class="ai-note">AI can make mistakes. Check important details in the original PDF.</p>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="info-sec">
+    <h2>How to Summarize a PDF with AI</h2>
+    <ol class="steps">
+      <li><div class="n">1</div><h3>Open in Chrome</h3><p>Use the latest Google Chrome on a desktop or laptop computer.</p></li>
+      <li><div class="n">2</div><h3>Add your PDF</h3><p>Click “Select PDF” or drag your file into the box.</p></li>
+      <li><div class="n">3</div><h3>Click Summarize</h3><p>Pick a style and length, then click “Summarize PDF.” Please wait while the AI reads it.</p></li>
+      <li><div class="n">4</div><h3>Read and copy</h3><p>Read your summary, then click “Copy Summary” to paste it anywhere.</p></li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section class="info-sec faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Is this AI PDF summarizer really free?</summary>
+      <p>Yes. It is free, with no signup, no account, and no limit on how many PDFs you summarize.</p>
+    </details>
+    <details>
+      <summary>Is my PDF uploaded anywhere?</summary>
+      <p>No. The text is read from your PDF inside your browser, and the summary is written by the AI model built into Chrome on your own device. Your file and its text are never sent to our servers or to any AI service.</p>
+    </details>
+    <details>
+      <summary>Why does it say I need Google Chrome?</summary>
+      <p>This tool uses Chrome’s built-in AI, called the Summarizer API. It works in the latest desktop version of Google Chrome. It does not work in Safari, Firefox, or on most phones and tablets. Your computer also needs enough free storage and a fairly modern processor or graphics card for the AI model.</p>
+    </details>
+    <details>
+      <summary>What happens the first time I use it?</summary>
+      <p>Chrome may need to download its AI model once. The download can be large, so use a good connection. After that, the model stays on your device and summaries start faster.</p>
+    </details>
+    <details>
+      <summary>Can it summarize scanned PDFs or very long PDFs?</summary>
+      <p>Long text-based PDFs work. The tool splits them into parts, summarizes each part, and then combines the results, so very long files take more time. Scanned PDFs, which are only pictures of pages, have no text to read, so this tool cannot summarize them.</p>
+    </details>
+    <details>
+      <summary>How accurate is the summary?</summary>
+      <p>The on-device AI is small, so it can miss details or make mistakes. It works best with English text. Always check important facts, numbers, and names in the original document.</p>
+    </details>
+    <details>
+      <summary>Can I also work with images or merge PDFs?</summary>
+      <p>Yes. Try our free <a href="index.html">Image to PDF converter</a> and <a href="merge-pdf.html">Merge PDF tool</a>. They also run fully in your browser.</p>
+    </details>
+  </section>
+</main>
+
+<!-- Spinner shown while working -->
+<div id="loading" role="status" aria-live="polite"><div class="spinner"></div><strong id="status">Working…</strong></div>
+
+<footer>
+  © 2025 pdfimageconverter.online — All processing happens in your browser<br>
+  <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
+  <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a>
+</footer>
+
+<!-- pdf.js: reads the text inside your PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script>
+  // ===== 1. SETUP =====
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const notice = document.getElementById('notice');
+  const options = document.getElementById('options');
+  const sumBtn = document.getElementById('sumBtn');
+  const result = document.getElementById('result');
+  const summaryBox = document.getElementById('summary');
+  const loading = document.getElementById('loading');
+  const statusEl = document.getElementById('status');
+
+  const MAX_CHARS = 150000;   // very long PDFs are cut off here to keep things fast
+  let pdfFile = null;
+
+  const setStatus = msg => { statusEl.textContent = msg; };
+  function showNotice(msg) { notice.textContent = msg; notice.style.display = 'block'; }
+
+  // ===== 2. CHECK IF THIS BROWSER HAS CHROME'S BUILT-IN AI =====
+  const hasAI = 'Summarizer' in self;
+  if (!hasAI) {
+    showNotice('Please use the latest version of Google Chrome on a desktop or laptop computer to use this AI feature.');
+    sumBtn.disabled = true;
+  } else {
+    Summarizer.availability().then(a => {
+      if (a === 'unavailable') {
+        showNotice('Sorry, your device cannot run Chrome’s built-in AI. It needs the latest desktop Chrome, enough free storage, and a modern processor or graphics card.');
+        sumBtn.disabled = true;
+      }
+    }).catch(() => {});
+  }
+
+  // ===== 3. CHOOSING A FILE =====
+  document.getElementById('pickBtn').onclick = () => fileInput.click();
+  fileInput.onchange = () => setFile(fileInput.files[0]);
+  ['dragenter', 'dragover'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+  ['dragleave', 'drop'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+  dropzone.addEventListener('drop', e => setFile(e.dataTransfer.files[0]));
+
+  function setFile(f) {
+    if (!f) return;
+    if (f.type !== 'application/pdf' && !f.name.toLowerCase().endsWith('.pdf')) { alert('Please choose a PDF file.'); return; }
+    pdfFile = f;
+    document.getElementById('fileName').textContent = f.name;
+    options.style.display = 'block';
+    result.style.display = 'none';
+  }
+
+  // ===== 4. READ THE TEXT FROM THE PDF (pdf.js) =====
+  async function extractText(file) {
+    const pdf = await pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise;
+    let text = '';
+    for (let p = 1; p <= pdf.numPages; p++) {
+      setStatus('Reading page ' + p + ' of ' + pdf.numPages + '…');
+      const content = await (await pdf.getPage(p)).getTextContent();
+      text += content.items.map(i => i.str).join(' ') + '\n\n';
+      if (text.length > MAX_CHARS) break;
+    }
+    return text.replace(/[ \t]+/g, ' ').trim().slice(0, MAX_CHARS);
+  }
+
+  // Split long text into pieces the AI can handle, cutting at sentence ends
+  function splitText(text, size) {
+    const parts = [];
+    while (text.length > size) {
+      let cut = Math.max(text.lastIndexOf('. ', size), text.lastIndexOf('\n', size));
+      if (cut < size * 0.5) cut = size;
+      parts.push(text.slice(0, cut + 1).trim());
+      text = text.slice(cut + 1).trim();
+    }
+    if (text) parts.push(text);
+    return parts;
+  }
+
+  // ===== 5. SUMMARIZE (Chrome built-in AI) =====
+  sumBtn.onclick = async () => {
+    if (!pdfFile) return;
+    loading.style.display = 'flex';
+    setStatus('Starting the AI…');
+    let summarizer = null;
+    try {
+      // Create the summarizer first, while the click is still "fresh" (Chrome requires this for the model download)
+      summarizer = await Summarizer.create({
+        type: document.getElementById('type').value,
+        length: document.getElementById('length').value,
+        format: 'plain-text',
+        outputLanguage: 'en',
+        sharedContext: 'This is text extracted from a PDF document.',
+        monitor(m) {
+          m.addEventListener('downloadprogress', e => setStatus('Downloading the AI model… ' + Math.round(e.loaded * 100) + '%'));
+        }
+      });
+
+      const text = await extractText(pdfFile);
+      if (text.length < 50) throw new Error('This PDF has no readable text. It may be a scan made of pictures, which this tool cannot read.');
+
+      // Chunk size: based on the AI's input limit if Chrome tells us, otherwise a safe default
+      const size = Math.min(15000, summarizer.inputQuota ? Math.floor(summarizer.inputQuota * 3) : 6000);
+      let pieces = splitText(text, size);
+      let round = 0;
+
+      // Summarize each piece; if there are many, summarize the summaries until they fit
+      while (pieces.length > 1 && round < 4) {
+        const next = [];
+        for (let i = 0; i < pieces.length; i++) {
+          setStatus('Summarizing part ' + (i + 1) + ' of ' + pieces.length + '…');
+          next.push(await summarizer.summarize(pieces[i]));
+        }
+        pieces = splitText(next.join('\n\n'), size);
+        round++;
+      }
+      setStatus('Writing your summary…');
+      const finalText = await summarizer.summarize(pieces.join('\n\n'));
+
+      summaryBox.textContent = finalText.trim();
+      result.style.display = 'block';
+      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      console.error(err);
+      alert(err && err.message ? err.message : 'Sorry, something went wrong. Please try again.');
+    }
+    if (summarizer && summarizer.destroy) summarizer.destroy();
+    loading.style.display = 'none';
+  };
+
+  // ===== 6. COPY BUTTON =====
+  document.getElementById('copyBtn').onclick = async () => {
+    const btn = document.getElementById('copyBtn');
+    const text = summaryBox.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      // Fallback for older settings: select the text and use the old copy command
+      const r = document.createRange(); r.selectNodeContents(summaryBox);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
+    }
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy Summary'; }, 2000);
+  };
+</script>
+</body>
+</html>
