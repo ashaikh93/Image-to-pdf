@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- SEO: title (48 characters) and description (152 characters) -->
+<title>Excel to PDF Converter Free – No Upload, Private</title>
+<meta name="description" content="Excel to PDF converter free: turn XLSX, XLS, and CSV files into a clean PDF table in your browser. No upload, no signup. Your files stay on your device.">
+<link rel="canonical" href="https://www.pdfimageconverter.online/excel-to-pdf.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Excel to PDF Converter Free – No Upload, Private">
+<meta property="og:description" content="Convert Excel and CSV files to PDF in your browser. Free, fast, and private.">
+
+<style>
+  /* ===== BASIC STYLES (same as the rest of the site) ===== */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333; background: #fff; line-height: 1.5; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 20px 24px; }
+
+  /* ===== NAV MENU ===== */
+  nav { max-width: 900px; margin: 0 auto; padding: 24px 20px 0; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
+  nav a { color: #333; font-weight: 600; text-decoration: none; padding: 6px 2px; border-bottom: 3px solid transparent; }
+  nav a:hover { color: #E5322D; }
+  nav a.active { color: #E5322D; border-bottom-color: #E5322D; }
+
+  /* ===== HEADING ===== */
+  h1 { font-size: 2.6rem; text-align: center; margin: 24px 0 12px; }
+  .subtitle { text-align: center; color: #666; max-width: 600px; margin: 0 auto 36px; font-size: 1.05rem; }
+  h2 { font-size: 1.1rem; margin: 0 0 12px; }
+
+  /* ===== BUTTONS ===== */
+  .btn { background: #E5322D; color: #fff; border: none; border-radius: 10px; padding: 14px 28px;
+    font-size: 1.05rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(229,50,45,.3); transition: background .15s; }
+  .btn:hover { background: #c92823; }
+  .btn:disabled { background: #ccc; box-shadow: none; cursor: not-allowed; }
+  a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid #333; outline-offset: 2px; }
+
+  /* ===== DROP ZONE ===== */
+  #dropzone { border: 2px dashed #ccc; border-radius: 16px; padding: 48px 20px; text-align: center; transition: .15s; }
+  #dropzone.dragover { border-color: #E5322D; background: #fff5f5; }
+  #dropzone p { margin: 14px 0 0; color: #777; }
+  #fileName { font-weight: 600; word-break: break-word; }
+
+  /* ===== OPTIONS ===== */
+  #options { display: none; margin-top: 28px; padding: 24px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .opt-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+  label { display: block; font-weight: 600; margin-bottom: 6px; font-size: .9rem; }
+  select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; background: #fff; color: #333; }
+  .center { text-align: center; margin-top: 24px; }
+  .hint { font-size: .85rem; color: #888; margin: 10px 0 0; }
+  #summary { text-align: center; color: #666; margin: 0 0 20px; }
+
+  /* ===== LOADING SPINNER ===== */
+  #loading { display: none; position: fixed; inset: 0; background: rgba(255,255,255,.88); z-index: 10; padding: 20px; text-align: center;
+    flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+  .spinner { width: 54px; height: 54px; border: 6px solid #eee; border-top-color: #E5322D; border-radius: 50%; animation: spin .9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+
+  /* ===== HOW-TO + FAQ SECTIONS ===== */
+  .info-sec { margin-top: 72px; }
+  .info-sec h2 { font-size: 1.6rem; text-align: center; margin-bottom: 28px; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; }
+  .steps li { padding: 22px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .steps .n { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;
+    background: #E5322D; color: #fff; font-weight: 700; margin-bottom: 12px; }
+  .steps h3 { font-size: 1.05rem; margin: 0 0 6px; }
+  .steps p { margin: 0; color: #666; font-size: .95rem; }
+  .faq details { border-bottom: 1px solid #eee; padding: 16px 4px; }
+  .faq summary { font-weight: 600; font-size: 1.05rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #E5322D; font-size: 1.4rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 12px 0 0; color: #666; }
+  .faq a { color: #E5322D; }
+
+  /* ===== FOOTER ===== */
+  footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; line-height: 1.8; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) { h1 { font-size: 2rem; } }
+</style>
+</head>
+
+<body>
+<!-- Navigation menu -->
+<nav aria-label="Main">
+  <a href="index.html">Image to PDF</a>
+  <a href="merge-pdf.html">Merge PDF</a>
+  <a href="ai-summarizer.html">AI Summarizer</a>
+  <a href="excel-to-pdf.html" class="active" aria-current="page">Excel to PDF</a>
+</nav>
+
+<main class="container">
+  <h1>Excel to PDF</h1>
+  <p class="subtitle">Convert Excel (XLSX, XLS) and CSV files to a clean PDF table. Free, fast, and private — files never leave your device.</p>
+
+  <!-- Drop zone -->
+  <section id="dropzone">
+    <h2>Add your spreadsheet</h2>
+    <button class="btn" id="pickBtn" type="button">Select Excel or CSV file</button>
+    <p>or drop it here</p>
+    <p id="fileName"></p>
+    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+  </section>
+
+  <!-- Options + Download button (shown after a file is read) -->
+  <section id="options">
+    <p id="summary"></p>
+    <div class="opt-row">
+      <div>
+        <label for="sheet">Sheet</label>
+        <select id="sheet"></select>
+      </div>
+      <div>
+        <label for="orientation">Orientation</label>
+        <select id="orientation">
+          <option value="auto">Auto (best fit)</option>
+          <option value="p">Portrait</option>
+          <option value="l">Landscape</option>
+        </select>
+      </div>
+      <div>
+        <label for="pageSize">Page size</label>
+        <select id="pageSize">
+          <option value="a4">A4</option>
+          <option value="letter">Letter</option>
+        </select>
+      </div>
+    </div>
+    <div class="center">
+      <button class="btn" id="downloadBtn" type="button">Download PDF</button>
+      <p class="hint">The first row of your sheet is used as the table header.</p>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="info-sec">
+    <h2>How to Convert Excel to PDF</h2>
+    <ol class="steps">
+      <li><div class="n">1</div><h3>Add your file</h3><p>Click “Select Excel or CSV file” or drag an XLSX, XLS, or CSV file into the box.</p></li>
+      <li><div class="n">2</div><h3>Choose settings</h3><p>Pick a sheet, the page orientation, and the page size. “Auto” works well for most files.</p></li>
+      <li><div class="n">3</div><h3>Click Download PDF</h3><p>Your data is turned into a PDF table right in your browser.</p></li>
+      <li><div class="n">4</div><h3>Open your PDF</h3><p>The PDF downloads on its own. Nothing is uploaded anywhere.</p></li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section class="info-sec faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Is this Excel to PDF converter really free?</summary>
+      <p>Yes. It is free, with no signup, no watermark, and no limit on how many files you convert.</p>
+    </details>
+    <details>
+      <summary>Is my spreadsheet uploaded to a server?</summary>
+      <p>No. Your file is read and turned into a PDF inside your browser, on your own device. It never leaves your computer or phone, so it is a good choice for private data such as invoices, payroll, or customer lists.</p>
+    </details>
+    <details>
+      <summary>Which file types can I use?</summary>
+      <p>You can use Excel files (.xlsx and .xls) and CSV files (.csv). Password-protected files cannot be read, so remove the password first.</p>
+    </details>
+    <details>
+      <summary>Will my colors, charts, and images be kept?</summary>
+      <p>No. This tool turns the values in your cells into a clean, simple table. Charts, images, cell colors, and merged cells are not copied. The text appears as you see it in the spreadsheet, such as dates and numbers formatted as shown.</p>
+    </details>
+    <details>
+      <summary>What if my sheet has many columns?</summary>
+      <p>Wide sheets are handled in two ways. The text size is made smaller, and if the table is still too wide, the extra columns continue on the following pages. Choosing Landscape usually gives the best result.</p>
+    </details>
+    <details>
+      <summary>Why do some characters look wrong in the PDF?</summary>
+      <p>The PDF uses a standard font that supports English and most European languages. Text in other scripts, such as Chinese, Japanese, Arabic, or Hindi, may not show correctly. Emoji are not supported either.</p>
+    </details>
+    <details>
+      <summary>Can I convert more than one sheet?</summary>
+      <p>Yes. Pick “All sheets” in the Sheet menu and each sheet is added to the PDF, one after another, with its name as a title.</p>
+    </details>
+    <details>
+      <summary>Can I also make PDFs from images or merge PDFs?</summary>
+      <p>Yes. Try our free <a href="index.html">Image to PDF converter</a> and <a href="merge-pdf.html">Merge PDF tool</a>. They also run fully in your browser.</p>
+    </details>
+  </section>
+</main>
+
+<!-- Spinner shown while working -->
+<div id="loading" role="status" aria-live="polite"><div class="spinner"></div><strong id="status">Working…</strong></div>
+
+<footer>
+  © 2025 pdfimageconverter.online — All processing happens in your browser<br>
+  <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
+  <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="blog/merge-pdf-iphone.html">Merge PDF on Phone</a>
+</footer>
+
+<!-- Libraries: SheetJS reads Excel/CSV, jsPDF makes the PDF, autotable draws the table -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+  // ===== 1. SETUP =====
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const options = document.getElementById('options');
+  const sheetSel = document.getElementById('sheet');
+  const loading = document.getElementById('loading');
+  const statusEl = document.getElementById('status');
+
+  let sheets = [];       // [{ name, rows }]  rows = list of rows, each row = list of text cells
+  let baseName = 'spreadsheet';
+
+  const setStatus = msg => { statusEl.textContent = msg; };
+  const pause = () => new Promise(r => setTimeout(r, 50)); // lets the spinner appear before heavy work
+
+  // ===== 2. CHOOSING A FILE =====
+  document.getElementById('pickBtn').onclick = () => fileInput.click();
+  fileInput.onchange = () => { readFile(fileInput.files[0]); fileInput.value = ''; };
+  ['dragenter', 'dragover'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+  ['dragleave', 'drop'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+  dropzone.addEventListener('drop', e => readFile(e.dataTransfer.files[0]));
+
+  // ===== 3. READ THE SPREADSHEET (SheetJS) =====
+  async function readFile(file) {
+    if (!file) return;
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (!['xlsx', 'xls', 'csv'].includes(ext)) { alert('Please choose an Excel (.xlsx, .xls) or CSV file.'); return; }
+
+    loading.style.display = 'flex';
+    setStatus('Reading your file…');
+    await pause();
+    try {
+      // CSV is read as text so accents and symbols come through correctly
+      const wb = ext === 'csv'
+        ? XLSX.read(await file.text(), { type: 'string' })
+        : XLSX.read(await file.arrayBuffer(), { type: 'array' });
+
+      sheets = wb.SheetNames.map(name => ({ name, rows: cleanRows(wb.Sheets[name]) })).filter(s => s.rows.length > 0);
+      if (!sheets.length) throw new Error('This file has no data to convert.');
+
+      baseName = file.name.replace(/\.[^.]+$/, '') || 'spreadsheet';
+      document.getElementById('fileName').textContent = file.name;
+
+      // Fill the Sheet menu
+      sheetSel.innerHTML = '';
+      if (sheets.length > 1) sheetSel.appendChild(new Option('All sheets (' + sheets.length + ')', 'all'));
+      sheets.forEach((s, i) => sheetSel.appendChild(new Option(s.name, String(i))));
+
+      const total = sheets.reduce((n, s) => n + s.rows.length, 0);
+      document.getElementById('summary').textContent =
+        sheets.length + (sheets.length === 1 ? ' sheet' : ' sheets') + ' found · ' + total + ' rows in total';
+      options.style.display = 'block';
+    } catch (err) {
+      console.error(err);
+      alert(err.message && err.message.indexOf('no data') > -1 ? err.message :
+        'Sorry, we could not read that file. It may be damaged or password-protected.');
+    }
+    loading.style.display = 'none';
+  }
+
+  // Turn a sheet into a clean grid of text: no empty rows, every row the same width
+  function cleanRows(ws) {
+    let rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: '' });
+    rows = rows.filter(r => r.some(c => String(c).trim() !== ''));
+    const cols = rows.reduce((m, r) => Math.max(m, r.length), 0);
+    return rows.map(r => {
+      const out = [];
+      for (let i = 0; i < cols; i++) out.push(r[i] === undefined || r[i] === null ? '' : String(r[i]));
+      return out;
+    });
+  }
+
+  // ===== 4. MAKE THE PDF (jsPDF + autotable) =====
+  document.getElementById('downloadBtn').onclick = async () => {
+    if (!sheets.length) return;
+    loading.style.display = 'flex';
+    setStatus('Creating your PDF…');
+    await pause();
+
+    try {
+      const { jsPDF } = window.jspdf;
+      const choice = sheetSel.value;
+      const picked = choice === 'all' ? sheets : [sheets[Number(choice)]];
+      const orientChoice = document.getElementById('orientation').value;
+      const format
