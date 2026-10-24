@@ -11,6 +11,11 @@
 <meta property="og:title" content="Excel to PDF Converter Free – No Upload, Private">
 <meta property="og:description" content="Convert Excel and CSV files to PDF in your browser. Free, fast, and private.">
 
+<!-- Libraries: SheetJS reads Excel/CSV, jsPDF makes the PDF, autotable draws the table -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
 <style>
   /* ===== BASIC STYLES (same as the rest of the site) ===== */
   * { box-sizing: border-box; }
@@ -86,23 +91,24 @@
 
 <body>
 <!-- Navigation menu -->
-<nav style="text-align: center; padding: 20px; background: #fafafa; border-bottom: 1px solid #eee; margin-bottom: 20px;">
-  <a href="index.html" style="margin: 0 15px; color: #333; font-weight: bold; text-decoration: none;">Image to PDF</a>
-  <a href="merge-pdf.html" style="margin: 0 15px; color: #333; font-weight: bold; text-decoration: none;">Merge PDF</a>
-  <a href="ai-summarizer.html" style="margin: 0 15px; color: #333; font-weight: bold; text-decoration: none;">AI Summarizer</a>
-  <a href="excel-to-pdf.html" style="margin: 0 15px; color: #E5322D; font-weight: bold; text-decoration: none;">Excel to PDF</a>
+<nav aria-label="Main">
+  <a href="index.html">Image to PDF</a>
+  <a href="merge-pdf.html">Merge PDF</a>
+  <a href="ai-summarizer.html">AI Summarizer</a>
+  <a href="excel-to-pdf.html" class="active" aria-current="page">Excel to PDF</a>
 </nav>
+
 <main class="container">
   <h1>Excel to PDF</h1>
   <p class="subtitle">Convert Excel (XLSX, XLS) and CSV files to a clean PDF table. Free, fast, and private — files never leave your device.</p>
 
-  <!-- Drop zone -->
+  <!-- Drop zone: the button below opens the hidden file input -->
   <section id="dropzone">
     <h2>Add your spreadsheet</h2>
-    <button class="btn" id="pickBtn" type="button">Select Excel or CSV file</button>
+    <button class="btn" id="selectBtn" type="button">Select Excel or CSV file</button>
     <p>or drop it here</p>
     <p id="fileName"></p>
-    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display: none;">
   </section>
 
   <!-- Options + Download button (shown after a file is read) -->
@@ -193,50 +199,84 @@
   <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="blog/merge-pdf-iphone.html">Merge PDF on Phone</a>
 </footer>
 
-<!-- Libraries: SheetJS reads Excel/CSV, jsPDF makes the PDF, autotable draws the table -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
-
+<!-- ============================================================
+     SCRIPT 1: the file picker. It is kept separate and very simple,
+     so the button works even if something else on the page fails.
+     ============================================================ -->
 <script>
-  // ===== 1. SETUP =====
-  const dropzone = document.getElementById('dropzone');
-  const fileInput = document.getElementById('fileInput');
-  const options = document.getElementById('options');
-  const sheetSel = document.getElementById('sheet');
-  const loading = document.getElementById('loading');
-  const statusEl = document.getElementById('status');
+(function () {
+  var selectBtn = document.getElementById('selectBtn');
+  var fileInput = document.getElementById('fileInput');
+  var dropzone = document.getElementById('dropzone');
 
-  let sheets = [];       // [{ name, rows }]  rows = list of rows, each row = list of text cells
-  let baseName = 'spreadsheet';
+  // The button opens the hidden file input
+  selectBtn.addEventListener('click', function () { fileInput.click(); });
 
-  const setStatus = msg => { statusEl.textContent = msg; };
-  const pause = () => new Promise(r => setTimeout(r, 50)); // lets the spinner appear before heavy work
-
-  // ===== 2. CHOOSING A FILE =====
-  document.getElementById('pickBtn').onclick = () => fileInput.click();
-  fileInput.onchange = () => { readFile(fileInput.files[0]); fileInput.value = ''; };
-  ['dragenter', 'dragover'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add('dragover'); }));
-  ['dragleave', 'drop'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
-  dropzone.addEventListener('drop', e => readFile(e.dataTransfer.files[0]));
-
-  // ===== 3. READ THE SPREADSHEET (SheetJS) =====
-  async function readFile(file) {
+  // When a file is chosen, hand it to the converter (Script 2)
+  function send(file) {
     if (!file) return;
-    const ext = file.name.split('.').pop().toLowerCase();
-    if (!['xlsx', 'xls', 'csv'].includes(ext)) { alert('Please choose an Excel (.xlsx, .xls) or CSV file.'); return; }
+    if (typeof window.handleExcelFile === 'function') window.handleExcelFile(file);
+    else alert('The page did not finish loading. Please reload it and try again.');
+  }
+  fileInput.addEventListener('change', function () {
+    var file = fileInput.files[0];
+    fileInput.value = '';   // lets you pick the same file again later
+    send(file);
+  });
+
+  // Drag and drop
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    dropzone.addEventListener(ev, function (e) { e.preventDefault(); dropzone.classList.add('dragover'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    dropzone.addEventListener(ev, function (e) { e.preventDefault(); dropzone.classList.remove('dragover'); });
+  });
+  dropzone.addEventListener('drop', function (e) { send(e.dataTransfer.files[0]); });
+})();
+</script>
+
+<!-- ============================================================
+     SCRIPT 2: reads the spreadsheet and makes the PDF.
+     ============================================================ -->
+<script>
+(function () {
+  var optionsBox = document.getElementById('options');
+  var sheetSel = document.getElementById('sheet');
+  var loading = document.getElementById('loading');
+  var statusEl = document.getElementById('status');
+
+  var sheets = [];            // [{ name, rows }]  rows = list of rows, each row = list of text cells
+  var baseName = 'spreadsheet';
+
+  function setStatus(msg) { statusEl.textContent = msg; }
+  function pause() { return new Promise(function (r) { setTimeout(r, 50); }); } // lets the spinner appear first
+
+  // Make sure the three libraries loaded from the CDN
+  function librariesReady() {
+    var ok = typeof XLSX !== 'undefined' && window.jspdf && window.jspdf.jsPDF;
+    if (!ok) alert('The converter could not load. Please check your internet connection, turn off any ad blocker for this page, and reload.');
+    return ok;
+  }
+
+  // ===== READ THE SPREADSHEET (SheetJS) =====
+  window.handleExcelFile = async function (file) {
+    var ext = file.name.split('.').pop().toLowerCase();
+    if (['xlsx', 'xls', 'csv'].indexOf(ext) === -1) { alert('Please choose an Excel (.xlsx, .xls) or CSV file.'); return; }
+    if (!librariesReady()) return;
 
     loading.style.display = 'flex';
     setStatus('Reading your file…');
     await pause();
     try {
       // CSV is read as text so accents and symbols come through correctly
-      const wb = ext === 'csv'
+      var wb = ext === 'csv'
         ? XLSX.read(await file.text(), { type: 'string' })
         : XLSX.read(await file.arrayBuffer(), { type: 'array' });
 
-      sheets = wb.SheetNames.map(name => ({ name, rows: cleanRows(wb.Sheets[name]) })).filter(s => s.rows.length > 0);
-      if (!sheets.length) throw new Error('This file has no data to convert.');
+      sheets = wb.SheetNames
+        .map(function (name) { return { name: name, rows: cleanRows(wb.Sheets[name]) }; })
+        .filter(function (s) { return s.rows.length > 0; });
+      if (!sheets.length) throw new Error('NO_DATA');
 
       baseName = file.name.replace(/\.[^.]+$/, '') || 'spreadsheet';
       document.getElementById('fileName').textContent = file.name;
@@ -244,42 +284,94 @@
       // Fill the Sheet menu
       sheetSel.innerHTML = '';
       if (sheets.length > 1) sheetSel.appendChild(new Option('All sheets (' + sheets.length + ')', 'all'));
-      sheets.forEach((s, i) => sheetSel.appendChild(new Option(s.name, String(i))));
+      sheets.forEach(function (s, i) { sheetSel.appendChild(new Option(s.name, String(i))); });
 
-      const total = sheets.reduce((n, s) => n + s.rows.length, 0);
+      var total = sheets.reduce(function (n, s) { return n + s.rows.length; }, 0);
       document.getElementById('summary').textContent =
         sheets.length + (sheets.length === 1 ? ' sheet' : ' sheets') + ' found · ' + total + ' rows in total';
-      options.style.display = 'block';
+      optionsBox.style.display = 'block';
     } catch (err) {
       console.error(err);
-      alert(err.message && err.message.indexOf('no data') > -1 ? err.message :
+      alert(err.message === 'NO_DATA' ? 'This file has no data to convert.' :
         'Sorry, we could not read that file. It may be damaged or password-protected.');
     }
     loading.style.display = 'none';
-  }
+  };
 
   // Turn a sheet into a clean grid of text: no empty rows, every row the same width
   function cleanRows(ws) {
-    let rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: '' });
-    rows = rows.filter(r => r.some(c => String(c).trim() !== ''));
-    const cols = rows.reduce((m, r) => Math.max(m, r.length), 0);
-    return rows.map(r => {
-      const out = [];
-      for (let i = 0; i < cols; i++) out.push(r[i] === undefined || r[i] === null ? '' : String(r[i]));
+    var rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: '' });
+    rows = rows.filter(function (r) { return r.some(function (c) { return String(c).trim() !== ''; }); });
+    var cols = rows.reduce(function (m, r) { return Math.max(m, r.length); }, 0);
+    return rows.map(function (r) {
+      var out = [];
+      for (var i = 0; i < cols; i++) out.push(r[i] === undefined || r[i] === null ? '' : String(r[i]));
       return out;
     });
   }
 
-  // ===== 4. MAKE THE PDF (jsPDF + autotable) =====
-  document.getElementById('downloadBtn').onclick = async () => {
-    if (!sheets.length) return;
+  // ===== MAKE THE PDF (jsPDF + autotable) =====
+  document.getElementById('downloadBtn').addEventListener('click', async function () {
+    if (!sheets.length || !librariesReady()) return;
     loading.style.display = 'flex';
     setStatus('Creating your PDF…');
     await pause();
 
     try {
-      const { jsPDF } = window.jspdf;
-      const choice = sheetSel.value;
-      const picked = choice === 'all' ? sheets : [sheets[Number(choice)]];
-      const orientChoice = document.getElementById('orientation').value;
-      const format
+      var jsPDF = window.jspdf.jsPDF;
+      var choice = sheetSel.value;
+      var picked = choice === 'all' ? sheets : [sheets[Number(choice)]];
+      var orientChoice = document.getElementById('orientation').value;
+      var format = document.getElementById('pageSize').value;
+      var multi = picked.length > 1;
+      var doc = null;
+
+      picked.forEach(function (sheet) {
+        var cols = sheet.rows[0].length;
+        var orient = orientChoice === 'auto' ? (cols > 6 ? 'l' : 'p') : orientChoice;
+        if (!doc) {
+          doc = new jsPDF({ unit: 'pt', format: format, orientation: orient });
+          if (typeof doc.autoTable !== 'function') throw new Error('NO_AUTOTABLE');
+        } else {
+          doc.addPage(format, orient);
+        }
+
+        // Smaller text when there are many columns
+        var fontSize = cols > 14 ? 5.5 : cols > 10 ? 6.5 : cols > 7 ? 7.5 : 9;
+
+        if (multi) { doc.setFontSize(13); doc.setTextColor(51); doc.text(sheet.name, 36, 34); }
+
+        doc.autoTable({
+          head: [sheet.rows[0]],
+          body: sheet.rows.slice(1),
+          startY: multi ? 46 : 36,
+          margin: { top: 36, left: 36, right: 36, bottom: 40 },
+          styles: { fontSize: fontSize, cellPadding: 3, overflow: 'linebreak', textColor: 51, lineColor: [225, 225, 225], lineWidth: 0.5 },
+          headStyles: { fillColor: [229, 50, 45], textColor: 255, fontStyle: 'bold' },
+          alternateRowStyles: { fillColor: [250, 250, 250] },
+          horizontalPageBreak: true,        // extra columns continue on the next page
+          horizontalPageBreakRepeat: 0      // ...and the first column is repeated
+        });
+      });
+
+      // Add "Page x of y" at the bottom of every page
+      var pages = doc.getNumberOfPages();
+      for (var p = 1; p <= pages; p++) {
+        doc.setPage(p);
+        doc.setFontSize(8); doc.setTextColor(136);
+        doc.text('Page ' + p + ' of ' + pages, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 20, { align: 'center' });
+      }
+
+      doc.save(baseName + '.pdf');   // auto-download
+    } catch (err) {
+      console.error(err);
+      alert(err.message === 'NO_AUTOTABLE'
+        ? 'The table tool could not load. Please check your internet connection and reload the page.'
+        : 'Sorry, something went wrong while creating the PDF. Please try again.');
+    }
+    loading.style.display = 'none';
+  });
+})();
+</script>
+</body>
+</html>
