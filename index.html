@@ -114,14 +114,17 @@
   .faq details[open] summary::after { content: "–"; }
   .faq summary:focus-visible { outline: 3px solid #333; outline-offset: 4px; border-radius: 4px; }
   .faq p { margin: 12px 0 0; color: #666; }
-
+  /* ===== LONG-FORM TEXT SECTION ===== */
+  .prose { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .prose h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+  .prose p, .prose li { color: #555; line-height: 1.7; }
+  .prose p { margin: 0 0 14px; }
+  .prose ul, .prose ol { padding-left: 22px; margin: 0 0 14px; }
+  .prose li { margin-bottom: 8px; }
+  .prose strong { color: #333; }
   /* ===== FOOTER ===== */
   footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; }
-<footer>
-  © 2025 pdfimageconverter.online — All processing happens in your browser<br>
-  <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
-  <a href="/blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="/blog/combine-images-to-pdf.html">Combine Images</a> · <a href="/blog/pdftojpg.html">PDF to JPG</a>
-</footer>
+
 
   /* ===== MOBILE ===== */
   @media (max-width: 600px) {
@@ -192,53 +195,84 @@
 
   <!-- HOW-TO SECTION: 4 numbered steps -->
   <section class="info">
+     <!-- HOW TO CONVERT IMAGES TO PDF -->
+  <section class="info prose">
     <h2>How to Convert Images to PDF</h2>
-    <ol class="steps">
-      <li>
-        <div class="n">1</div>
-        <h3>Add your images</h3>
-        <p>Click “Select images” or drag JPG, PNG, and WEBP files into the box.</p>
-      </li>
-      <li>
-        <div class="n">2</div>
-        <h3>Arrange the pages</h3>
-        <p>Drag thumbnails into the order you want, or delete any you don’t need.</p>
-      </li>
-      <li>
-        <div class="n">3</div>
-        <h3>Choose your settings</h3>
-        <p>Pick portrait or landscape, a page size (A4, Letter, or Fit to image), and a margin.</p>
-      </li>
-      <li>
-        <div class="n">4</div>
-        <h3>Convert and download</h3>
-        <p>Click “Convert to PDF.” Your file downloads automatically in seconds.</p>
-      </li>
+
+    <h3>Why turn images into a PDF?</h3>
+    <p>Photos and screenshots are easy to take, but they are awkward to share. Ten separate pictures can arrive out of order, get lost in a chat, or be rejected by a website that wants a single document. A PDF solves this. It keeps your pages in a fixed order, looks the same on every phone and computer, and is accepted almost everywhere.</p>
+
+    <h3>Common ways people use it</h3>
+    <ul>
+      <li><strong>Scanned documents:</strong> Photograph each page of a contract, form, or letter, then combine the photos into one PDF.</li>
+      <li><strong>Job applications:</strong> Put your resume, certificates, and ID copies into a single file that recruiters can open easily.</li>
+      <li><strong>Receipts and invoices:</strong> Collect photos of your expenses into one PDF for a refund or reimbursement claim.</li>
+      <li><strong>School work:</strong> Turn photos of handwritten homework or notes into one file for your teacher.</li>
+    </ul>
+
+    <h3>Step-by-step instructions</h3>
+    <ol>
+      <li><strong>Add your images.</strong> Click “Select images,” or drag JPG, PNG, and WEBP files into the dashed box. You can add many at once, and you can add more later.</li>
+      <li><strong>Check the thumbnails.</strong> Each picture appears as a small preview with its page number.</li>
+      <li><strong>Set the page order.</strong> Drag a thumbnail to a new spot, or use the small arrows, which are handy on phones. Click the red × to remove a picture.</li>
+      <li><strong>Choose the orientation.</strong> Portrait suits tall pages such as documents. Landscape suits wide pictures.</li>
+      <li><strong>Choose the page size.</strong> A4 and Letter fit standard paper. “Fit to image” makes each page match the size of its picture.</li>
+      <li><strong>Choose a margin.</strong> Pick None for edge-to-edge images, or Small or Big for white space around each one.</li>
+      <li><strong>Click “Convert to PDF.”</strong> A spinner shows while the file is made, and then your PDF downloads on its own.</li>
     </ol>
+    <p>For the sharpest result, use clear, well-lit photos. Each image becomes one page and is scaled to fit without being stretched. Transparent areas in PNG or WEBP images turn white. The whole process takes less than a minute, and you do not need an account or any software.</p>
   </section>
 
-  <!-- FAQ SECTION: 5 questions -->
+  <!-- WHY USE OUR TOOL -->
+  <section class="info">
+    <h2>Why Use Our Image to PDF Converter?</h2>
+    <ul class="steps">
+      <li>
+        <h3>Your files never leave your device</h3>
+        <p>Your browser reads the images straight from your computer or phone and builds the PDF right there on the page. Nothing is uploaded to our servers, so nobody else can see your IDs, contracts, or receipts.</p>
+      </li>
+      <li>
+        <h3>Nothing to install</h3>
+        <p>It works in any modern browser on Windows, Mac, Linux, iPhone, and Android. There is no app to download, no plugin, and no account to create.</p>
+      </li>
+      <li>
+        <h3>Simple, open technology</h3>
+        <p>The PDF is made by jsPDF, a well-known open-source library, running on your own device. Because nothing travels over the internet, the speed depends on your device, not on your connection.</p>
+      </li>
+      <li>
+        <h3>Control without complexity</h3>
+        <p>Choose the page order, orientation, page size, and margins in a few clicks. There is no watermark and no daily limit. The only limit is your device’s memory.</p>
+      </li>
+    </ul>
+    <p style="text-align:center; color:#666; margin-top:24px;">Want to check the privacy claim yourself? Open your browser’s developer tools, go to the Network tab, and convert some images. You will not see any of your files being sent.</p>
+  </section>
+
+  <!-- FAQ SECTION: 6 questions -->
   <section class="info faq">
     <h2>Frequently Asked Questions</h2>
     <details>
       <summary>Is this image to PDF converter really free?</summary>
-      <p>Yes. It’s free to use with no signup, no watermark, and no limit on how many PDFs you create.</p>
+      <p>Yes. It is completely free, with no signup, no watermark, and no limit on how many PDFs you create. You can use it as often as you like.</p>
     </details>
     <details>
       <summary>Are my images uploaded to a server?</summary>
-      <p>No. Everything happens inside your browser, so your images never leave your device. That makes it a good choice for private documents like IDs, receipts, and contracts.</p>
+      <p>No. Your images are read and turned into a PDF inside your own browser, so they never leave your device. This makes the tool a good choice for private documents such as IDs, bank papers, and signed contracts.</p>
     </details>
     <details>
-      <summary>Which image formats can I convert to PDF?</summary>
-      <p>You can use JPG (JPEG), PNG, and WEBP images. You can mix different formats in the same PDF.</p>
+      <summary>Which image formats can I convert?</summary>
+      <p>You can use JPG (JPEG), PNG, and WEBP images, and you can mix them in the same PDF. Other formats, such as HEIC from some iPhone settings, are not supported. If you have HEIC photos, switch your iPhone camera to “Most Compatible” in Settings, or convert them to JPG first.</p>
     </details>
     <details>
-      <summary>Can I combine multiple images into one PDF?</summary>
-      <p>Yes. Each image becomes its own page in a single PDF, in the order shown in the thumbnails. Drag them to rearrange before converting.</p>
+      <summary>How many images can I put in one PDF?</summary>
+      <p>There is no fixed limit. The real limit is your device’s memory, because everything is processed on your own computer or phone. If you have hundreds of high-resolution photos and the page slows down, try making several smaller PDFs instead.</p>
     </details>
     <details>
-      <summary>What does “Fit to image” page size mean?</summary>
-      <p>Each page is sized to match its image, so nothing is shrunk or surrounded by blank space. Choose A4 or Letter instead if you plan to print the PDF on standard paper.</p>
+      <summary>Will the image quality get worse?</summary>
+      <p>The tool saves each image inside the PDF as a high-quality JPEG, so photos look nearly the same as the originals. PNG and WEBP images are converted in this way too, and any transparent areas become white. Your original files are never changed.</p>
+    </details>
+    <details>
+      <summary>Does it work on iPhone and Android?</summary>
+      <p>Yes. Open the page in Safari or Chrome, tap “Select images,” and choose photos from your library. Use the small arrow buttons to change the page order, since dragging can be hard on a touch screen. When the PDF is ready, you will find it in your Downloads folder or in the Files app.</p>
     </details>
   </section>
 </main>
@@ -251,7 +285,8 @@
 
 <footer>
   © 2025 pdfimageconverter.online — All processing happens in your browser<br>
-  <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a> · <a href="/blog/jpg-to-pdf-iphone.html">Blog</a>
+  <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
+  <a href="/blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="/blog/combine-images-to-pdf.html">Combine Images</a> · <a href="/blog/pdftojpg.html">PDF to JPG</a> · <a href="/blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="/blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="/blog/merge-pdf-iphone.html">Merge PDF on iPhone</a>
 </footer>
 
 <!-- jsPDF library (does the actual PDF creation) -->
