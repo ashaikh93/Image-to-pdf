@@ -80,7 +80,14 @@
   .faq details[open] summary::after { content: "–"; }
   .faq p { margin: 12px 0 0; color: #666; }
   .info-sec a, .faq a { color: #E5322D; }
-
+  /* ===== LONG-FORM TEXT SECTION ===== */
+  .prose { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .prose h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+  .prose p, .prose li { color: #555; line-height: 1.7; }
+  .prose p { margin: 0 0 14px; }
+  .prose ul, .prose ol { padding-left: 22px; margin: 0 0 14px; }
+  .prose li { margin-bottom: 8px; }
+  .prose strong { color: #333; }
   /* ===== FOOTER ===== */
   footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; line-height: 1.8; }
   footer a { color: #888; text-decoration: none; }
@@ -121,43 +128,84 @@
     <p class="hint" id="hint">Drag files (or use the arrows) to change the order. Add at least 2 files.</p>
   </section>
 
-  <!-- HOW TO USE -->
-  <section class="info-sec">
+    <!-- HOW TO MERGE PDF FILES -->
+  <section class="info-sec prose">
     <h2>How to Merge PDF Files</h2>
-    <ol class="steps">
-      <li><div class="n">1</div><h3>Add your PDFs</h3><p>Click “Select PDF files” or drag two or more PDFs into the box.</p></li>
-      <li><div class="n">2</div><h3>Put them in order</h3><p>Drag files up or down. The top file becomes the first pages of your merged PDF.</p></li>
-      <li><div class="n">3</div><h3>Click Merge PDFs</h3><p>Your files are combined right in your browser in a few seconds.</p></li>
-      <li><div class="n">4</div><h3>Download</h3><p>The merged PDF downloads on its own. Nothing is uploaded anywhere.</p></li>
+
+    <h3>Why combine PDFs into one file?</h3>
+    <p>Sending five separate PDFs is messy. They can arrive in the wrong order, one can get left out, and some websites let you upload only one file. A single merged PDF is easier to send, easier to print, and easier for the other person to read from start to finish.</p>
+
+    <h3>Common ways people use it</h3>
+    <ul>
+      <li><strong>Travel documents:</strong> Combine flight tickets, hotel bookings, and insurance papers into one file you can open offline.</li>
+      <li><strong>Job applications:</strong> Join your cover letter, resume, and certificates into a single PDF that follows the order the employer asked for.</li>
+      <li><strong>Contracts and forms:</strong> Put a signed page, the main agreement, and any extra pages together before you send them.</li>
+      <li><strong>Invoices and receipts:</strong> Gather a month of paperwork into one file for your accountant or an expense claim.</li>
+      <li><strong>School work:</strong> Merge separate assignment parts or scanned pages into one file for your teacher.</li>
+    </ul>
+
+    <h3>Step-by-step instructions</h3>
+    <ol>
+      <li><strong>Add your PDFs.</strong> Click “Select PDF files,” or drag two or more PDFs into the dashed box. You can add more files at any time.</li>
+      <li><strong>Check the list.</strong> Each file shows its name and size, so you can be sure you picked the right ones.</li>
+      <li><strong>Set the order.</strong> Drag a file up or down. On a phone, use the ▲ and ▼ buttons instead. The file at the top becomes the first pages of your new PDF.</li>
+      <li><strong>Remove mistakes.</strong> Click the red × to take a file out of the list.</li>
+      <li><strong>Click “Merge PDFs.”</strong> The button turns on once you have at least two files. A spinner shows while your files are combined.</li>
+      <li><strong>Download and check.</strong> Your new file, called merged.pdf, downloads on its own. Open it and scroll through to make sure every page is in the right place.</li>
     </ol>
+    <p>All the pages of every file are copied in order, so nothing is cut out. The tool joins whole files only. If you need just a few pages from a long PDF, trim it in another app first. If your merged file is too big to email, see our guide on <a href="blog/reduce-pdf-size.html">how to reduce PDF file size</a>. If you only have photos, turn them into a PDF with our <a href="index.html">Image to PDF converter</a> and then merge them here.</p>
   </section>
 
-  <!-- FAQ -->
+  <!-- WHY USE OUR TOOL -->
+  <section class="info-sec">
+    <h2>Why Use Our Merge PDF Tool?</h2>
+    <ul class="steps">
+      <li>
+        <h3>Your PDFs never leave your device</h3>
+        <p>Your browser reads your files and joins them right on the page. Nothing is uploaded to our servers, so nobody can see your contracts, IDs, or bank papers.</p>
+      </li>
+      <li>
+        <h3>No account, no watermark</h3>
+        <p>There is nothing to sign up for and nothing to install. Your merged PDF is clean, with no logo or stamp added to your pages.</p>
+      </li>
+      <li>
+        <h3>Simple, open technology</h3>
+        <p>The merging is done by pdf-lib, a well-known open-source library, running on your own device. It copies the original pages into a new file, so your text and pictures are not changed.</p>
+      </li>
+      <li>
+        <h3>Works on any device</h3>
+        <p>Use it in a modern browser on Windows, Mac, Linux, iPhone, or Android. The only limit is your device’s memory, not a daily quota.</p>
+      </li>
+    </ul>
+    <p style="text-align:center; color:#666; margin-top:24px;">Want to check for yourself? Open your browser’s developer tools, go to the Network tab, and merge some PDFs. You will not see any of your files being sent anywhere.</p>
+  </section>
+
+  <!-- FAQ SECTION: 6 questions -->
   <section class="info-sec faq">
     <h2>Frequently Asked Questions</h2>
     <details>
       <summary>Is this tool to merge PDF files really free?</summary>
-      <p>Yes. It is free, with no signup, no watermark, and no limit on how many times you use it.</p>
+      <p>Yes. It is completely free, with no signup, no watermark, and no limit on how many times you use it. You can merge as many sets of PDFs as you like.</p>
     </details>
     <details>
       <summary>Are my PDF files uploaded to a server?</summary>
-      <p>No. Your files are merged inside your browser, on your own device. They never leave your computer or phone, which makes this a good choice for contracts, IDs, and other private papers.</p>
+      <p>No. Your files are merged inside your own browser and never leave your computer or phone. That makes this a safe choice for private papers such as contracts, IDs, and financial records.</p>
     </details>
     <details>
       <summary>How many PDFs can I merge at once?</summary>
-      <p>There is no set limit. The real limit is your device’s memory. Very large files, or hundreds of them, can be slow on older phones and computers. If that happens, merge them in smaller groups.</p>
+      <p>There is no fixed limit on the number of files or their size. The real limit is your device’s memory, because the work is done on your own computer or phone. If a very large set is slow, merge it in smaller groups and then merge the results.</p>
     </details>
     <details>
-      <summary>Will merging lower the quality of my PDFs?</summary>
-      <p>No. Pages are copied from your original files into the new one, so text, images, and layout stay the same. Your original files are not changed.</p>
+      <summary>Will the quality of my PDFs get worse?</summary>
+      <p>No. The pages are copied from your original files into the new one, so text, images, and layout stay the same. Your original files are not changed. Bookmarks and some interactive features, such as fillable form fields, may not carry over to the merged file.</p>
     </details>
     <details>
       <summary>Why did my PDF fail to merge?</summary>
-      <p>The file may be damaged or protected with a password. Remove the password in the app you used to create it, then try again.</p>
+      <p>The most common reasons are that a file is damaged or protected with a password. The tool tells you the name of the file it could not read. Remove the password in the app that created the PDF, or save a fresh copy, and then try again.</p>
     </details>
     <details>
-      <summary>Can I turn images into a PDF too?</summary>
-      <p>Yes. Use our free <a href="index.html">Image to PDF converter</a> to turn JPG, PNG, and WEBP images into a PDF, then merge it here with your other files.</p>
+      <summary>Does it work on iPhone and Android?</summary>
+      <p>Yes. Open the page in Safari or Chrome, tap “Select PDF files,” and choose your PDFs. Use the ▲ and ▼ buttons to change the order, since dragging can be hard on a touch screen. The merged file will be in your Downloads folder or the Files app.</p>
     </details>
   </section>
 </main>
@@ -168,9 +216,8 @@
 <footer>
   © 2025 pdfimageconverter.online — All processing happens in your browser<br>
   <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
-  <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a>
+  <a href="/blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="/blog/combine-images-to-pdf.html">Combine Images</a> · <a href="/blog/pdftojpg.html">PDF to JPG</a> · <a href="/blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="/blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="/blog/merge-pdf-iphone.html">Merge PDF on iPhone</a>
 </footer>
-
 <!-- pdf-lib: the library that does the merging -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
