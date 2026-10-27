@@ -79,7 +79,15 @@
   .faq details[open] summary::after { content: "–"; }
   .faq p { margin: 12px 0 0; color: #666; }
   .faq a { color: #E5322D; }
-
+  /* ===== LONG-FORM TEXT SECTION ===== */
+  .prose { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .prose h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+  .prose p, .prose li { color: #555; line-height: 1.7; }
+  .prose p { margin: 0 0 14px; }
+  .prose ul, .prose ol { padding-left: 22px; margin: 0 0 14px; }
+  .prose li { margin-bottom: 8px; }
+  .prose strong { color: #333; }
+  .prose a { color: #E5322D; }
   /* ===== FOOTER ===== */
   footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; line-height: 1.8; }
   footer a { color: #888; text-decoration: none; }
@@ -141,51 +149,85 @@
     </div>
   </section>
 
-  <!-- HOW TO USE -->
-  <section class="info-sec">
+  <!-- HOW TO CONVERT EXCEL TO PDF -->
+  <section class="info-sec prose">
     <h2>How to Convert Excel to PDF</h2>
-    <ol class="steps">
-      <li><div class="n">1</div><h3>Add your file</h3><p>Click “Select Excel or CSV file” or drag an XLSX, XLS, or CSV file into the box.</p></li>
-      <li><div class="n">2</div><h3>Choose settings</h3><p>Pick a sheet, the page orientation, and the page size. “Auto” works well for most files.</p></li>
-      <li><div class="n">3</div><h3>Click Download PDF</h3><p>Your data is turned into a PDF table right in your browser.</p></li>
-      <li><div class="n">4</div><h3>Open your PDF</h3><p>The PDF downloads on its own. Nothing is uploaded anywhere.</p></li>
+
+    <h3>Why turn a spreadsheet into a PDF?</h3>
+    <p>A spreadsheet is made to be edited, but that is not always what you want. When you send an Excel file, the other person can change the numbers by mistake, and the layout can look different on their computer. A PDF is read-only and looks the same everywhere, so it is the safer choice for sharing, printing, and keeping records.</p>
+
+    <h3>Common ways people use it</h3>
+    <ul>
+      <li><strong>Invoices and reports:</strong> Send a final version that clients can read but not change.</li>
+      <li><strong>Price lists and catalogs:</strong> Share a clean table of products and prices.</li>
+      <li><strong>Schedules and timetables:</strong> Turn a class, work, or event schedule into a file anyone can open.</li>
+      <li><strong>Marks and attendance sheets:</strong> Print or share results without the formulas behind them.</li>
+      <li><strong>CSV exports:</strong> Many apps and websites export data as CSV. Turn it into a readable PDF in a few clicks.</li>
+    </ul>
+
+    <h3>Step-by-step instructions</h3>
+    <ol>
+      <li><strong>Add your file.</strong> Click “Select Excel or CSV file,” or drag an XLSX, XLS, or CSV file into the dashed box.</li>
+      <li><strong>Check what was found.</strong> A line shows how many sheets and rows the tool read, so you know the right file loaded.</li>
+      <li><strong>Choose a sheet.</strong> If your workbook has several sheets, pick one, or choose “All sheets” to put them all in one PDF. Each sheet then starts on a new page with its name as a title.</li>
+      <li><strong>Choose the orientation.</strong> “Auto” picks Landscape for tables with many columns and Portrait for narrow ones. You can also set it yourself.</li>
+      <li><strong>Choose the page size.</strong> Pick A4 or Letter, depending on the paper you use.</li>
+      <li><strong>Click “Download PDF.”</strong> A spinner shows while the file is made. Your PDF downloads on its own, with the same name as your spreadsheet.</li>
     </ol>
+    <p>The first row of your sheet becomes the table header, shown in red. Empty rows are skipped, and each page gets a page number at the bottom. For the best result, make sure your first row contains column names, and delete columns you do not need before converting. If a table is very wide, the text is made smaller and the extra columns continue on the next pages, with the first column repeated so you can still follow each row.</p>
+    <p>Need to join this PDF with other files? Use our <a href="merge-pdf.html">Merge PDF tool</a>. If the result is too big to email, read our guide on <a href="blog/reduce-pdf-size.html">how to reduce PDF file size</a>. Photos of paper documents can be turned into a PDF with our <a href="index.html">Image to PDF converter</a>.</p>
   </section>
 
-  <!-- FAQ -->
+  <!-- WHY USE OUR TOOL -->
+  <section class="info-sec">
+    <h2>Why Use Our Excel to PDF Converter?</h2>
+    <ul class="steps">
+      <li>
+        <h3>Your data stays on your device</h3>
+        <p>Your browser reads the spreadsheet and builds the PDF right on the page. Nothing is uploaded to our servers, so invoices, payroll lists, and customer data stay private.</p>
+      </li>
+      <li>
+        <h3>No account, no watermark</h3>
+        <p>There is nothing to install and nothing to sign up for. Your PDF has no logo or stamp added, and there is no daily limit.</p>
+      </li>
+      <li>
+        <h3>Simple, open technology</h3>
+        <p>The file is read by SheetJS, and the table is drawn by jsPDF with its autotable plugin. These are well-known open-source libraries running on your own device.</p>
+      </li>
+      <li>
+        <h3>A clean table, not a copy of Excel</h3>
+        <p>The tool turns your cell values into a tidy, readable table. It does not copy colors, charts, or images, so the result is simple, light, and easy to read.</p>
+      </li>
+    </ul>
+    <p style="text-align:center; color:#666; margin-top:24px;">Want to check the privacy claim yourself? Open your browser’s developer tools, go to the Network tab, and convert a file. You will not see your spreadsheet being sent anywhere.</p>
+  </section>
+
+  <!-- FAQ SECTION: 6 questions -->
   <section class="info-sec faq">
     <h2>Frequently Asked Questions</h2>
     <details>
       <summary>Is this Excel to PDF converter really free?</summary>
-      <p>Yes. It is free, with no signup, no watermark, and no limit on how many files you convert.</p>
+      <p>Yes. It is completely free, with no signup, no watermark, and no limit on how many files you convert. You can use it as often as you need.</p>
     </details>
     <details>
       <summary>Is my spreadsheet uploaded to a server?</summary>
-      <p>No. Your file is read and turned into a PDF inside your browser, on your own device. It never leaves your computer or phone, so it is a good choice for private data such as invoices, payroll, or customer lists.</p>
+      <p>No. Your file is read and turned into a PDF inside your own browser, so it never leaves your computer or phone. That makes the tool a good choice for private data such as payroll, invoices, and customer lists.</p>
     </details>
     <details>
-      <summary>Which file types can I use?</summary>
-      <p>You can use Excel files (.xlsx and .xls) and CSV files (.csv). Password-protected files cannot be read, so remove the password first.</p>
+      <summary>Which file types can I convert?</summary>
+      <p>You can use Excel files (.xlsx and .xls) and CSV files (.csv). Password-protected files cannot be read, so remove the password in Excel first and then try again.</p>
     </details>
     <details>
-      <summary>Will my colors, charts, and images be kept?</summary>
-      <p>No. This tool turns the values in your cells into a clean, simple table. Charts, images, cell colors, and merged cells are not copied. The text appears as you see it in the spreadsheet, such as dates and numbers formatted as shown.</p>
+      <summary>Will my colors, charts, and formatting be kept?</summary>
+      <p>No. The tool copies the values in your cells into a simple table with a red header row and light striped rows. Charts, images, cell colors, and merged cells are not carried over. Dates and numbers appear as they are shown in the spreadsheet, and formulas show their results.</p>
     </details>
     <details>
-      <summary>What if my sheet has many columns?</summary>
-      <p>Wide sheets are handled in two ways. The text size is made smaller, and if the table is still too wide, the extra columns continue on the following pages. Choosing Landscape usually gives the best result.</p>
+      <summary>What if my sheet has a lot of columns?</summary>
+      <p>The text is made smaller when there are many columns. If the table is still too wide for the page, the extra columns continue on the following pages, and the first column is repeated so each row is easy to follow. Choosing Landscape usually gives the best fit, and deleting columns you do not need helps even more.</p>
     </details>
     <details>
-      <summary>Why do some characters look wrong in the PDF?</summary>
-      <p>The PDF uses a standard font that supports English and most European languages. Text in other scripts, such as Chinese, Japanese, Arabic, or Hindi, may not show correctly. Emoji are not supported either.</p>
-    </details>
-    <details>
-      <summary>Can I convert more than one sheet?</summary>
-      <p>Yes. Pick “All sheets” in the Sheet menu and each sheet is added to the PDF, one after another, with its name as a title.</p>
-    </details>
-    <details>
-      <summary>Can I also make PDFs from images or merge PDFs?</summary>
-      <p>Yes. Try our free <a href="index.html">Image to PDF converter</a> and <a href="merge-pdf.html">Merge PDF tool</a>. They also run fully in your browser.</p>
+      <summary>Why do some characters look wrong in my PDF?</summary>
+      <p>The PDF uses a standard font that covers English and most European languages. Text in other scripts, such as Chinese, Japanese, Arabic, or Hindi, may not display correctly, and emoji are not supported. Very large sheets with many thousands of rows can also take a while on older devices.</p>
     </details>
   </section>
 </main>
@@ -196,8 +238,10 @@
 <footer>
   © 2025 pdfimageconverter.online — All processing happens in your browser<br>
   <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
-  <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="blog/merge-pdf-iphone.html">Merge PDF on Phone</a>
+  <a href="/blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="/blog/combine-images-to-pdf.html">Combine Images</a> · <a href="/blog/pdftojpg.html">PDF to JPG</a><br>
+  <a href="/blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="/blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="/blog/merge-pdf-iphone.html">Merge PDF on iPhone</a>
 </footer>
+
 
 <!-- ============================================================
      SCRIPT 1: the file picker. It is kept separate and very simple,
