@@ -85,7 +85,15 @@
   .faq details[open] summary::after { content: "–"; }
   .faq p { margin: 12px 0 0; color: #666; }
   .faq a { color: #E5322D; }
-
+  /* ===== LONG-FORM TEXT SECTION ===== */
+  .prose { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .prose h3 { font-size: 1.15rem; margin: 28px 0 8px; }
+  .prose p, .prose li { color: #555; line-height: 1.7; }
+  .prose p { margin: 0 0 14px; }
+  .prose ul, .prose ol { padding-left: 22px; margin: 0 0 14px; }
+  .prose li { margin-bottom: 8px; }
+  .prose strong { color: #333; }
+  .prose a { color: #E5322D; }
   /* ===== FOOTER ===== */
   footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; line-height: 1.8; }
   footer a { color: #888; text-decoration: none; }
@@ -157,45 +165,84 @@
 
   <!-- HOW TO USE -->
   <section class="info-sec">
+      <!-- HOW TO SUMMARIZE A PDF WITH AI -->
+  <section class="info-sec prose">
     <h2>How to Summarize a PDF with AI</h2>
-    <ol class="steps">
-      <li><div class="n">1</div><h3>Open in Chrome</h3><p>Use the latest Google Chrome on a desktop or laptop computer.</p></li>
-      <li><div class="n">2</div><h3>Add your PDF</h3><p>Click “Select PDF” or drag your file into the box.</p></li>
-      <li><div class="n">3</div><h3>Click Summarize</h3><p>Pick a style and length, then click “Summarize PDF.” Please wait while the AI reads it.</p></li>
-      <li><div class="n">4</div><h3>Read and copy</h3><p>Read your summary, then click “Copy Summary” to paste it anywhere.</p></li>
+
+    <h3>Why summarize a PDF?</h3>
+    <p>Many PDFs are long, and you often only need the main points. A good summary helps you decide quickly whether a document is worth reading in full, and it gives you a short version to share or save. It can turn a 40-page report into a handful of bullet points in a minute or two.</p>
+
+    <h3>Common ways people use it</h3>
+    <ul>
+      <li><strong>Reports and articles:</strong> Get the key findings before you read the whole thing.</li>
+      <li><strong>Research papers:</strong> Quickly see what a paper is about while you decide what to read closely.</li>
+      <li><strong>Policies and contracts:</strong> Get a first overview of a long document. Always read the full text for anything important, because a summary is not legal advice.</li>
+      <li><strong>Study material:</strong> Turn long handouts or lecture notes into short review points.</li>
+      <li><strong>Meeting notes:</strong> Pull the main decisions out of long minutes saved as a PDF.</li>
+    </ul>
+
+    <h3>Step-by-step instructions</h3>
+    <ol>
+      <li><strong>Open the page in Chrome.</strong> Use the latest Google Chrome on a desktop or laptop computer. This tool relies on Chrome’s built-in AI.</li>
+      <li><strong>Add your PDF.</strong> Click “Select PDF,” or drag your file into the dashed box. You will see the file name appear.</li>
+      <li><strong>Pick a summary style.</strong> “Key points” gives you short bullets. “TL;DR” gives you a short paragraph.</li>
+      <li><strong>Pick a length.</strong> Choose Short for a quick overview, Medium for most documents, or Long for more detail.</li>
+      <li><strong>Click “Summarize PDF.”</strong> A spinner shows what is happening, such as reading pages or summarizing each part. The first time you use it, Chrome may download its AI model, which can take a few minutes.</li>
+      <li><strong>Read and copy.</strong> Your summary appears in a box below. Click “Copy Summary” to paste it into an email, note, or document.</li>
     </ol>
+    <p>The tool reads the text inside your PDF, so it works best on PDFs made from documents such as Word, Google Docs, or web pages. Long PDFs are split into parts. Each part is summarized, and then the results are combined into one summary, so very long files take more time. Pages that are only pictures, such as scans, have no text to read. If you need to turn such pages into a PDF first, see our <a href="index.html">Image to PDF converter</a>, or <a href="merge-pdf.html">merge several PDFs</a> before you summarize them.</p>
   </section>
 
-  <!-- FAQ -->
+  <!-- WHY USE OUR TOOL -->
+  <section class="info-sec">
+    <h2>Why Use Our AI PDF Summarizer?</h2>
+    <ul class="steps">
+      <li>
+        <h3>Your PDF stays on your device</h3>
+        <p>The text is read from your PDF inside your browser, and the summary is written by an AI model that runs on your own computer. Your file and its text are never sent to our servers or to any outside AI service.</p>
+      </li>
+      <li>
+        <h3>No account and no cost</h3>
+        <p>There is nothing to sign up for, no email to give, and no daily limit on how many PDFs you summarize.</p>
+      </li>
+      <li>
+        <h3>Built on Chrome’s on-device AI</h3>
+        <p>The summary is made by the AI that comes with Google Chrome, and the text is read with pdf.js, a well-known open-source library. After the one-time model download, the summarizing itself needs no internet connection to an AI service.</p>
+      </li>
+      <li>
+        <h3>Honest about its limits</h3>
+        <p>The on-device model is small, so it works best as a quick first look. It can miss details or make mistakes, so always check important facts in the original document.</p>
+      </li>
+    </ul>
+    <p style="text-align:center; color:#666; margin-top:24px;">Want to check the privacy claim yourself? Open your browser’s developer tools, go to the Network tab, and summarize a PDF. You will not see your file or its text being sent to a server.</p>
+  </section>
+
+  <!-- FAQ SECTION: 6 questions -->
   <section class="info-sec faq">
     <h2>Frequently Asked Questions</h2>
     <details>
       <summary>Is this AI PDF summarizer really free?</summary>
-      <p>Yes. It is free, with no signup, no account, and no limit on how many PDFs you summarize.</p>
+      <p>Yes. It is free to use, with no signup, no account, and no limit on how many PDFs you summarize. It does not use paid AI credits, because the AI runs on your own device.</p>
     </details>
     <details>
-      <summary>Is my PDF uploaded anywhere?</summary>
-      <p>No. The text is read from your PDF inside your browser, and the summary is written by the AI model built into Chrome on your own device. Your file and its text are never sent to our servers or to any AI service.</p>
+      <summary>Is my PDF uploaded to a server or an AI company?</summary>
+      <p>No. The text is read from your PDF in your browser, and the summary is written by the AI model built into Chrome on your own computer. Your file and its text are never sent to our servers or to any AI service, which makes this a safer choice for private documents.</p>
     </details>
     <details>
-      <summary>Why does it say I need Google Chrome?</summary>
-      <p>This tool uses Chrome’s built-in AI, called the Summarizer API. It works in the latest desktop version of Google Chrome. It does not work in Safari, Firefox, or on most phones and tablets. Your computer also needs enough free storage and a fairly modern processor or graphics card for the AI model.</p>
+      <summary>Why does the tool say I need Google Chrome?</summary>
+      <p>The tool uses Chrome’s built-in Summarizer feature, which is only available in recent desktop versions of Google Chrome. It does not work in Safari or Firefox, or on most phones and tablets. Your computer also needs enough free storage and a fairly modern processor or graphics card to run the AI model.</p>
     </details>
     <details>
       <summary>What happens the first time I use it?</summary>
-      <p>Chrome may need to download its AI model once. The download can be large, so use a good connection. After that, the model stays on your device and summaries start faster.</p>
+      <p>Chrome may need to download its AI model once, and the spinner shows the progress. The download can be large, so use a good connection and be patient. After that, the model stays on your device and later summaries start much faster.</p>
     </details>
     <details>
-      <summary>Can it summarize scanned PDFs or very long PDFs?</summary>
-      <p>Long text-based PDFs work. The tool splits them into parts, summarizes each part, and then combines the results, so very long files take more time. Scanned PDFs, which are only pictures of pages, have no text to read, so this tool cannot summarize them.</p>
+      <summary>Can it summarize scanned or very long PDFs?</summary>
+      <p>Long PDFs that contain real text work well. The tool splits them into parts, summarizes each part, and combines the results, so very long files take more time, and extremely long ones are cut off after roughly the first 150,000 characters. Scanned PDFs are made of pictures and contain no text, so this tool cannot summarize them.</p>
     </details>
     <details>
-      <summary>How accurate is the summary?</summary>
-      <p>The on-device AI is small, so it can miss details or make mistakes. It works best with English text. Always check important facts, numbers, and names in the original document.</p>
-    </details>
-    <details>
-      <summary>Can I also work with images or merge PDFs?</summary>
-      <p>Yes. Try our free <a href="index.html">Image to PDF converter</a> and <a href="merge-pdf.html">Merge PDF tool</a>. They also run fully in your browser.</p>
+      <summary>How accurate is the summary, and which languages work?</summary>
+      <p>The on-device AI is small, so it can leave out details or make mistakes, especially with numbers, names, and legal wording. Always check important facts in the original document. The summary is written in English, and the tool works best with English text.</p>
     </details>
   </section>
 </main>
@@ -206,7 +253,7 @@
 <footer>
   © 2025 pdfimageconverter.online — All processing happens in your browser<br>
   <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a><br>
-  <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a>
+  <a href="/blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="/blog/combine-images-to-pdf.html">Combine Images</a> · <a href="/blog/pdftojpg.html">PDF to JPG</a> · <a href="/blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="/blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="/blog/merge-pdf-iphone.html">Merge PDF on iPhone</a>
 </footer>
 
 <!-- pdf.js: reads the text inside your PDF -->
