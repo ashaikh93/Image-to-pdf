@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us – Free, Private PDF Tools</title>
+<meta name="description" content="Why we built pdfimageconverter.online: free PDF tools that run in your browser, so your private documents never get uploaded to a server.">
+<link rel="canonical" href="https://www.pdfimageconverter.online/about.html">
+
+<style>
+  /* ===== BASIC STYLES (same as the rest of the site) ===== */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333; background: #fff; line-height: 1.6; }
+  .container { max-width: 760px; margin: 0 auto; padding: 32px 20px 24px; }
+
+  /* ===== NAV MENU ===== */
+  nav { max-width: 900px; margin: 0 auto; padding: 24px 20px 0; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
+  nav a { color: #333; font-weight: 600; text-decoration: none; padding: 6px 2px; border-bottom: 3px solid transparent; }
+  nav a:hover { color: #E5322D; }
+
+  /* ===== HEADINGS ===== */
+  h1 { font-size: 2.6rem; text-align: center; margin: 24px 0 12px; }
+  .subtitle { text-align: center; color: #666; margin: 0 auto 36px; font-size: 1.05rem; max-width: 560px; }
+  h2 { font-size: 1.25rem; margin: 32px 0 10px; }
+
+  /* ===== CONTENT CARD ===== */
+  .card { padding: 12px 28px 28px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .card p, .card li { color: #555; }
+  .card p { margin: 0 0 12px; }
+  .card ul { margin: 0 0 12px; padding-left: 22px; }
+  .card li { margin-bottom: 8px; }
+  .card a { color: #E5322D; }
+
+  /* ===== BUTTON ===== */
+  .btn { display: inline-block; background: #E5322D; color: #fff; border-radius: 10px; text-decoration: none;
+    padding: 14px 28px; font-size: 1.05rem; font-weight: 600; box-shadow: 0 4px 12px rgba(229, 50, 45, .3); transition: background .15s; }
+  .btn:hover { background: #c92823; }
+  .center { text-align: center; margin-top: 32px; }
+  a:focus-visible { outline: 3px solid #333; outline-offset: 2px; border-radius: 4px; }
+
+  /* ===== FOOTER ===== */
+  footer { text-align: center; color: #888; font-size: .85rem; padding: 32px 20px; line-height: 1.8; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) { h1 { font-size: 2rem; } .card { padding: 4px 20px 20px; } }
+</style>
+</head>
+
+<body>
+<!-- Navigation menu -->
+<nav aria-label="Main">
+  <a href="index.html">Image to PDF</a>
+  <a href="merge-pdf.html">Merge PDF</a>
+  <a href="ai-summarizer.html">AI Summarizer</a>
+  <a href="excel-to-pdf.html">Excel to PDF</a>
+</nav>
+
+<main class="container">
+  <h1>About Us</h1>
+  <p class="subtitle">Free PDF tools that respect your privacy.</p>
+
+  <article class="card">
+    <h2>Why we built this site</h2>
+    <p>Most online PDF tools work the same way: you upload your file to their server, they process it, and you download the result. That is fine for a flyer or a recipe. It is not fine for a passport scan, a bank statement, a signed contract, or a medical form.</p>
+    <p>Once a file is on someone else’s server, you cannot see where it goes, who can access it, or how long it is kept. We did not like that trade-off, so we built pdfimageconverter.online to avoid it.</p>
+
+    <h2>How our tools work</h2>
+    <p>Every tool on this site runs inside your web browser, on your own device. Your files are opened, processed, and turned into a new file right there. They are never sent to our servers, because our servers never receive them. Behind the scenes, the tools use well-known open-source libraries: jsPDF for creating PDFs, pdf-lib for merging them, pdf.js for reading PDF text, and SheetJS for reading spreadsheets.</p>
+    <p>You can check this yourself. Open your browser’s developer tools, go to the Network tab, and use any tool. You will see the page code load, but you will not see your files being uploaded.</p>
+
+    <h2>What we offer</h2>
+    <ul>
+      <li><a href="index.html">Image to PDF</a> turns JPG, PNG, and WEBP images into one PDF.</li>
+      <li><a href="merge-pdf.html">Merge PDF</a> combines several PDF files into one.</li>
+      <li><a href="excel-to-pdf.html">Excel to PDF</a> converts spreadsheets and CSV files into a clean PDF table.</li>
+      <li><a href="ai-summarizer.html">AI PDF Summarizer</a> writes a short summary of a PDF using the AI built into desktop Chrome, so the text stays on your device.</li>
+    </ul>
+    <p>We also write plain-English guides on our <a href="blog/combine-images-to-pdf.html">blog</a> to help with everyday PDF problems.</p>
+
+    <h2>Being honest about limits</h2>
+    <p>Browser-based tools have trade-offs, and we would rather tell you than hide them. Very large files can be slow on older devices, because your own device does the work. The Excel tool makes a simple table and does not copy colors or charts. The AI summarizer only works in the latest desktop version of Google Chrome, and its summaries can contain mistakes, so check anything important against the original.</p>
+
+    <h2>How the site is paid for</h2>
+    <p>The tools are free to use, with no account and no watermark. To help cover hosting and the time it takes to maintain the site, we may show ads, such as Google AdSense. You can read how ads and cookies are handled in our <a href="privacy.html">Privacy Policy</a>. Ads never see your files, because your files stay in your browser.</p>
+
+    <h2>Get in touch</h2>
+    <p>Found a bug, have an idea for a new tool, or want to tell us something that did not work? We would like to hear from you.</p>
+  </article>
+
+  <p class="center"><a class="btn" href="contact.html">Contact Us</a></p>
+</main>
+
+<footer>
+  © 2025 pdfimageconverter.online — All processing happens in your browser<br>
+  <a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a><br>
+  <a href="blog/jpg-to-pdf-iphone.html">JPG to PDF</a> · <a href="blog/combine-images-to-pdf.html">Combine Images</a> · <a href="blog/pdftojpg.html">PDF to JPG</a> · <a href="blog/reduce-pdf-size.html">Reduce PDF Size</a> · <a href="blog/scan-documents-iphone-pdf.html">Scan Documents</a> · <a href="blog/merge-pdf-iphone.html">Merge PDF on iPhone</a> · <a href="blog/image-to-pdf-merger.html">Image to PDF Merger</a>
+</footer>
+</body>
+</html>
